@@ -1,1 +1,1 @@
-Заголовки FASMDll для Delphi/Free Pascal.
+п»їР—Р°РіРѕР»РѕРІРєРё FASMDll РґР»СЏ Delphi/Free Pascal.
