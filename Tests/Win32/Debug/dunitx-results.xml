@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="W:\Fasm4Delphi\Tests\Win32\Debug\Tester.exe" total="4" errors="0" failures="0" ignored="0" inconclusive="0" not-run="0" skipped="0" invalid="0" date="2018-02-11" time="0.001">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="Tester.exe" executed="true" result="Success" success="True" time="0.001" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="TesterMain" executed="true" result="Success" success="True" time="0.001" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="TMyTestObject" executed="True" result="Success" success="True" time="0.001" >
+                <results>
+                  <test-case name="Test1" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Test2" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Test3" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Test4" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>
