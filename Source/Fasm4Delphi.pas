@@ -69,21 +69,24 @@ type
   TLINE_HEADER=record 
     file_path:PAnsiChar;
     line_number:cardinal;
-    file_offset:cardinal;
-    macro_calling_line:^TLINE_HEADER;
-    //macro_line:^TLINE_HEADER;
+    case byte of
+      0:(file_offset:cardinal);
+      1:(macro_calling_line:^TLINE_HEADER;
+        macro_line:^TLINE_HEADER;);
   end;
   PLINE_HEADER=^TLINE_HEADER;
-  
+{$EXTERNALSYM TLINE_HEADER}
+
   TFASM_STATE=record
-    condition:Int32;       
-    error_code:Int32;    
-    error_line:PLINE_HEADER;
-    //output_data:pointer;    
-    //output_length:cardinal;   
+    condition:Int32;  
+    case byte of
+    0:(error_code:Int32;    
+       error_line:PLINE_HEADER;);
+    1:(output_length:cardinal;
+       output_data:pointer;  );   
   end;  
   PFASM_STATE=^TFASM_STATE; 
-//{$EXTERNALSYM TFASM_STATE}
+{$EXTERNALSYM TFASM_STATE}
 
 const
   FASMDLLName='FASM.DLL';
@@ -158,7 +161,7 @@ var
 {$ENDIF}
 
 {$IFNDEF FasmStaticLink}
-procedure LoadFASM(Name:string);
+procedure LoadFASM(Name:string=FASMDLLName);
 procedure FreeFASM;
 {$ENDIF}
 
@@ -168,14 +171,21 @@ implementation
 var
   &Library:THandle=0;
 
-procedure LoadFASM(Name:string);
+procedure LoadFASM(Name:string=FASMDLLName);
 begin
 if &Library<>0 then
   FreeFasm;
-&Library:=LoadLibrary(PWideChar(Name));
+{$IFDEF FPC}    
+&Library:=LoadLibrary(PChar(Name));
+Pointer(fasm_GetVersion):=GetProcAddress(&Library,'fasm_GetVersion');
+Pointer(fasm_Assemble):=GetProcAddress(&Library,'fasm_Assemble');
+Pointer(fasm_AssembleFile):=GetProcAddress(&Library,'fasm_AssembleFile');  
+{$ELSE}
+&Library:=LoadLibrary(PChar(Name));
 fasm_GetVersion:=GetProcAddress(&Library,'fasm_GetVersion');
 fasm_Assemble:=GetProcAddress(&Library,'fasm_Assemble');
-fasm_AssembleFile:=GetProcAddress(&Library,'fasm_AssembleFile');  
+fasm_AssembleFile:=GetProcAddress(&Library,'fasm_AssembleFile'); 
+{$ENDIF}
 end;   
  
 procedure FreeFASM;
