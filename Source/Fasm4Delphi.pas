@@ -42,10 +42,9 @@ const
   FASMDLLName='FASM.DLL';
 
   // General errors and conditions
-  
-  FASM_OK			   =0;	  //FASM_STATE points to output
+  FASM_OK			   =0;//FASM_STATE points to output
   FASM_WORKING			   =1;
-  FASM_ERROR			   =2;	  //FASM_STATE contains error code
+  FASM_ERROR			   =2;//FASM_STATE contains error code
   FASM_INVALID_PARAMETER	   =-1;
   FASM_OUT_OF_MEMORY		   =-2;
   FASM_STACK_OVERFLOW		   =-3;
@@ -57,7 +56,6 @@ const
   FASM_INVALID_DEFINITION	   =-9;
 
   //Error codes for FASM_ERROR condition
-
   FASMERR_FILE_NOT_FOUND		      =-101;
   FASMERR_ERROR_READING_FILE		      =-102;
   FASMERR_INVALID_FILE_FORMAT		      =-103;
@@ -151,5 +149,4 @@ fasm_AssembleFile:=nil;
 end;
 {$ENDIF}
 {$ENDIF}
-
 end.
