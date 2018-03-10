@@ -5,6 +5,7 @@ unit Fasm4Delphi platform;
 
 interface
 
+
 //{$Define FasmStaticLink}
 {$IFDEF WIN32}
 
