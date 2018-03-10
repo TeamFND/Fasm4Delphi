@@ -17,15 +17,15 @@ type
     V1,V2:word;
   end;
 
+  PLINE_HEADER=^TLINE_HEADER;
   TLINE_HEADER=record 
     file_path:PAnsiChar;
     line_number:cardinal;
     case byte of
       0:(file_offset:cardinal);
-      1:(macro_calling_line:^TLINE_HEADER;
-	macro_line:^TLINE_HEADER;);
+      1:(macro_calling_line:PLINE_HEADER;
+	macro_line:PLINE_HEADER);
   end;
-  PLINE_HEADER=^TLINE_HEADER;
 {$EXTERNALSYM TLINE_HEADER}
 
   TFASM_STATE=record
