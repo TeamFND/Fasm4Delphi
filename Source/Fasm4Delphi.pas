@@ -3,12 +3,13 @@ unit Fasm4Delphi platform;
 {Delphi Translation&Tests:Artyom Gavrilov,Vlad Untkin.
  Donate:https://money.yandex.ru/to/410014959153552}
 
-interface 
-
-uses
-  Windows; 
+interface
 
 //{$Define FasmStaticLink}
+{$IFDEF WIN32}
+
+uses
+  Windows;
 
 type
   TFasmVersion=packed record
@@ -113,9 +114,11 @@ var
 procedure LoadFASM(Name:string=FASMDLLName);
 procedure FreeFASM;
 {$ENDIF}
+{$ENDIF}
 
 implementation
 
+{$IFDEF WIN32}
 {$IFNDEF FasmStaticLink}
 var
   &Library:THandle=0;
@@ -145,7 +148,8 @@ fasm_GetVersion:=nil;
 fasm_Assemble:=nil;
 fasm_AssembleFile:=nil; 
 &Library:=0;
-end;	   
+end;
+{$ENDIF}
 {$ENDIF}
 
 end.
