@@ -99,14 +99,14 @@ const
 {$IFDEF FasmStaticLink}
 function fasm_GetVersion:TFasmVersion;stdcall;external FASMDLLName;
 function fasm_Assemble(lpSource:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;
-  nPassesLimit:word=100;hDisplayPipe:DWord=0):Int32;stdcall;external FASMDLLName;
+  nPassesLimit:cardinal=100;hDisplayPipe:DWORD=0):Int32;stdcall;external FASMDLLName;
 function fasm_AssembleFile(lpSourceFile:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;
-  nPassesLimit:word=100;hDisplayPipe:DWord=0):Int32;stdcall;external FASMDLLName;
+  nPassesLimit:cardinal=100;hDisplayPipe:DWORD=0):Int32;stdcall;external FASMDLLName;
 {$ELSE}
 var
   fasm_GetVersion:function:TFasmVersion;stdcall;
-  fasm_Assemble:function(lpSource:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;nPassesLimit:word=100;hDisplayPipe:DWord=0):Int32;stdcall;
-  fasm_AssembleFile:function(lpSourceFile:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;nPassesLimit:word=100;hDisplayPipe:DWord=0):Int32;stdcall;
+  fasm_Assemble:function(lpSource:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;nPassesLimit:DWORD=100;hDisplayPipe:DWord=0):Int32;stdcall;
+  fasm_AssembleFile:function(lpSourceFile:PAnsiChar;lpMemory:pointer;cbMemorySize:cardinal;nPassesLimit:DWORD=100;hDisplayPipe:DWord=0):Int32;stdcall;
 {$ENDIF}
 
 {$IFNDEF FasmStaticLink}
