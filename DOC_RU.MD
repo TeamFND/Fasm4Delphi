@@ -1,9 +1,9 @@
-﻿##Описание функций FASM.DLL
+﻿#Описание функций FASM.DLL
 
-#fasm_GetVersion()
+###fasm_GetVersion()
 Возвращает двойное слово(dword) содержащее основную чать версии в младших 16 битах, и подверсию в сташих 16 битах.
 
-#fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+###fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 Ассемблирует переданный исходный код, используя переданный блок памяти как рабочее пространство(вывод также будет находиться в нём).
 
 lpSource должен содержать указатель на оканчивающийся нулём(zero-ended?ansi string) исходный код(pansichar).
@@ -18,11 +18,11 @@ hDisplayPipe должен содержать handle pipe'а, в котрорый
 
 Если ассемблирование неудалось, функция вернёт один из других основных кодов ошибок(см. "General errors and conditions" в Fasm4Delphi.pas). Если код ошибки - FASM_ERROR, это значит что ошибка произошла в определённом месте кода, тогда поля error_code and error_line FASM_STATE'а будут заполнены, первое из них будет содержать детальный код ошибки(см. "Error codes for FASM_ERROR condition" в Fasm4Delphi.pas),а вторая - указатель(pointer) на структуру содержащую информацию о строке в котрой произошла ошибка(см. "TLINE_HEADER" в Fasm4Delphi.pas).
 
-#fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+###fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 Эта функция работает идентично fasm_Assemble, но в отличии от неё принимает параметр lpSourceFile вместо lpSource. Этот параметр должен содержать указатель(pointer) на оканчивающийся нулём(zero-ended?ansi string) путь до файла содержащего исходный код для ассемблироания(pansichar).
 
 ********************************************
-##Описание структур используемых FASM.DLL
+#Описание структур используемых FASM.DLL
 Следующая структура находится в начале блока памяти передаваемого в fasm_Assemble. Поле condition содержит тоже значение которое возвращается функцией.
 
 Когда функция возвращает FASM_OK, поля output_length и output_data заполнены указателем(pointer) на результат ассемблирования(он находится внутри блока памяти) и длинной этого блока памяти соответственно.
