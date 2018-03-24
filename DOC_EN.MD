@@ -1,4 +1,5 @@
-﻿# Description of functions inside FASM.DLL
+﻿
+# Description of functions inside FASM.DLL
 
 ### fasm_GetVersion()
 Returns double word containg major version in lower 16 bits, and minor version in the higher 16 bits.
