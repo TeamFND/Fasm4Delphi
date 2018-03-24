@@ -1,9 +1,9 @@
-﻿#FASM.DLLから関数の説明です。
+﻿# FASM.DLLから関数の説明です。
 
-###fasm_GetVersion()
+### fasm_GetVersion()
 Dwordを返します。16ビット下位は重要なバージョン番号含みます。16ビット上位はサブバージョン番号含みます。
 
-###fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+### fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 ソースをアセンブルします。ワークスペースいるにメモリブロックが渡できるをつかいます（そのメモリブロックのまん中に出力があります）。
 
 lpSourceはソースへポインタです（pansichar）。終わりの文字の値はゼロです。
@@ -18,11 +18,11 @@ hDisplayPipeにpipeのhandleがあります。pipeは表示の出力。hDisplayP
 
 アセンブルは成功しないが関数がエラーコードを返します（Fasm4Delphi.pasへ「General　errors　and　conditions」を見る）。FASM_ERRORはコードへエラーを意味する。それからFASM_STATEのerror_codeとerror_lineがあります。error_codeは二番エラーコード（Fasm4Delphi.pasへ「Error　codes　for　FASM_ERROR　condition」を見る）。error_lineはエラーの文字列のレコードへポインタ（Fasm4Delphi.pasへ「TLINE_HEADER」を見る）。
 
-###fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+### fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 この関数は同じにfasm_Assembleです。でも、一番パラメータはlpSourceFileあります。lpSourceFileはソースファイルの名前へポインタです（pansichar）。終わりの文字の値はゼロです。
 
 ********************************************
-#FASM.DLLからエラーコードの説明です。
+# FASM.DLLからエラーコードの説明です。
 
 fasm_Assembleのためにメモリブロックの初めてにこのエラーコードがあります。conditionは同じ関数の返です。
 
@@ -34,9 +34,9 @@ fasm_Assembleのためにメモリブロックの初めてにこのエラーコ�
     file_path:PAnsiChar;
       line_number:cardinal;
       case byte of
-        0:(file_offset:cardinal);
-        1:(macro_calling_line:^TLINE_HEADER;
-          macro_line:^TLINE_HEADER;);
+	0:(file_offset:cardinal);
+	1:(macro_calling_line:^TLINE_HEADER;
+	  macro_line:^TLINE_HEADER;);
     end;
 
 このレコードは二つのバリエーション。一番バリアントはTLINE_HEADERがソースに文字列をあります。二番バリアントはTLINE_HEADERがマクロ命令の文字列をあります。一番バリアントはline_numberのビット上位に０です。二番バリアントはline_numberのビット上位に１です。
@@ -49,7 +49,7 @@ fasm_Assembleのためにメモリブロックの初めてにこのエラーコ�
     file_path:PAnsiChar;
       line_number:cardinal;
       case byte of
-        0:(file_offset:cardinal);
-        1:(macro_calling_line:^TLINE_HEADER;
-          macro_line:^TLINE_HEADER;);
+	0:(file_offset:cardinal);
+	1:(macro_calling_line:^TLINE_HEADER;
+	  macro_line:^TLINE_HEADER;);
     end;

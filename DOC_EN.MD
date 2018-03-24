@@ -1,9 +1,9 @@
-﻿#Description of functions inside FASM.DLL
+﻿# Description of functions inside FASM.DLL
 
-###fasm_GetVersion()
+### fasm_GetVersion()
 Returns double word containg major version in lower 16 bits, and minor version in the higher 16 bits.
 
-###fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+### fasm_Assemble(lpSource,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 Assembles the given source, using the provided memory block as a free storage space(which is also to contain generated output).
 
 The lpSource should contain a pointer to zero-ended source text(pansichar).
@@ -18,11 +18,11 @@ If the assembly is successful, function returns FASM_OK value and fills the outp
 
 If the assembly failed, function returns one of the other general conditions/errors codes(see "General errors and conditions" in Fasm4Delphi.pas). If if error code is FASM_ERROR, it means that an error caused by a specific place in source occured, then the error_code and error_line fields of FASM_STATE are filled, first one with detailed error code(see "Error codes for FASM_ERROR condition" in Fasm4Delphi.pas), and the second one with pointer to a structure containing data about line that caused the error(see "TLINE_HEADER" in Fasm4Delphi.pas).
 
-###fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
+### fasm_AssembleFile(lpSourceFile,lpMemory,cbMemorySize,nPassesLimit,hDisplayPipe)
 This function performs identically to fasm_Assemble, except that it takes the lpSourceFile parameter in place of lpSource, and it shall contain the pointer to zero-ended path to file containing the source to assemble(pansichar).
 
 ********************************************
-#Description of structures used in FASM.DLL
+# Description of structures used in FASM.DLL
 
 The following structure resides at the beginning of memory block provided to the fasm_Assemble function. The condition field contains the same value as the one returned by function.
 
