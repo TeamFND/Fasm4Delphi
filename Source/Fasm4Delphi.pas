@@ -1,10 +1,12 @@
+//****************************************************
+//*Copyright (c) 2018 Artem Gavrilov		     *
+//*Website: https://teamfnd.ru			     *
+//*License: MIT 				     *
+//*Donate: https://money.yandex.ru/to/410014959153552*
+//****************************************************
 unit Fasm4Delphi platform;
 
-{Delphi Translation&Tests:Artyom Gavrilov,Vlad Untkin.
- Donate:https://money.yandex.ru/to/410014959153552}
-
 interface
-
 
 //{$Define FasmStaticLink}
 {$IFDEF WIN32}
